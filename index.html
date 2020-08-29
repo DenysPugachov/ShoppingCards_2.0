@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" type="image/jpg" href="/favicon.png" />
+    <link rel="shortcut icon" type="image/jpg" href="img/icon_P.png" />
     <link rel="stylesheet" href="CSS/main.css" />
     <link rel="stylesheet" href="CSS/switch.css" />
+    <link rel="stylesheet" href="CSS/card.css" />
     <title>ShopCartCreator</title>
 </head>
 
@@ -23,37 +24,38 @@
 
         <div class="container__input">
             <div class="wrapper_logo">
-                <input type="text" class="logo" name="logo" placeholder="Logo" />
+                <input type="text" class="logo url" name="logo" placeholder="Logo" />
                 <input class="switch" type="checkbox" title="background" />
             </div>
 
             <br />
 
             <div class="wrapper_foto">
-                <input type="text" class="foto_1" name="foto_1" placeholder="Foto_1" />
-                <input type="text" class="foto_2" name="foto_2" placeholder="Foto_2" />
-                <input type="text" class="foto_2" name="foto_3" placeholder="Foto_3" />
+                <input type="text" class="foto_1 url" name="foto_1" placeholder="Foto_1" />
+                <input type="text" class="foto_2 url" name="foto_2" placeholder="Foto_2" />
+                <input type="text" class="foto_3 url" name="foto_3" placeholder="Foto_3" />
+                <input type="text" class="foto_4 url" name="foto_4" placeholder="Foto_4" />
             </div>
 
             <br />
 
             <div class="wrapper_price">
-                <input type="num" class="price_old_1" name="old_price" placeholder="Old_price" />
+                <input type="text" class="price_old_1 text" name="old_price" placeholder="Old_price" />
                 <input class="switch" type="checkbox" title="background" />
-                <input type="text" class="price_new_1" name="new_price" placeholder="New_price" />
+                <input type="text" class="price_new_1 text" name="new_price" placeholder="New_price" />
                 <input class="switch" type="checkbox" title="background" />
-                <input type="num" class="price_old_2" name="old_price" placeholder="Old_price" />
+                <input type="text" class="price_old_2 text" name="old_price" placeholder="Old_price" />
                 <input class="switch" type="checkbox" title="background" />
-                <input type="num" class="price_new_2" name="new_price" placeholder="New_price" />
+                <input type="text" class="price_new_2 text" name="new_price" placeholder="New_price" />
                 <input class="switch" type="checkbox" title="background" />
             </div>
 
             <br />
 
             <div class="wrapper_text">
-                <input type="text" class="text_1" name="text_1" placeholder="Old_price" />
+                <input type="text" class="text_1 text" name="text_1 text" placeholder="Old_price" />
                 <input class="switch" type="checkbox" title="background" />
-                <input type="text" class="text_2" name="text_2" placeholder="New_price" />
+                <input type="text" class="text_2 text" name="text_2 text" placeholder="New_price" />
                 <input class="switch" type="checkbox" title="background" />
             </div>
 
@@ -61,7 +63,9 @@
 
         </div>
     </div>
-    <div class="cartPlaceHolder"></div>
+    <div class="container__card">
+        <div class="cartPlaceHolder"> </div>
+    </div>
     <script src="./js/js.js"></script>
 </body>
 

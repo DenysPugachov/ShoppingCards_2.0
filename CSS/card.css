@@ -1,0 +1,17 @@
+.container__card {
+    display: inline-block;
+    margin: 10px;
+}
+
+.cartPlaceHolder {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    height: 1080px;
+    width: 1080px;
+    outline: solid #ccc;
+}
+
+.foto_1{
+
+}
