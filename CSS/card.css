@@ -3,15 +3,112 @@
     margin: 10px;
 }
 
-.cartPlaceHolder {
+.cardPlaceHolder {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: repeat(12, 1fr);
     height: 1080px;
     width: 1080px;
     outline: solid #ccc;
+    position: relative;
 }
 
-.foto_1{
+.cardPlaceHolder>div {
+    border: 5px solid red;
+    /* display: grid; */
+    /* justify-items: center; */
+    position: relative;
+    /* overflow: hidden; */
+    height: 100%;
+}
 
+img {
+    /* height: 100%; */
+    position: absolute;
+}
+
+.logo {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 50;
+}
+
+.foto_1 {
+    grid-column: 1/7;
+    grid-row: 1/7;
+}
+
+.foto_2 {
+    grid-column: 1/7;
+    grid-row: 7/13;
+}
+
+.foto_3 {
+    grid-column: 7/13;
+    grid-row: 1/7;
+}
+
+.foto_4 {
+    grid-column: 7/13;
+    grid-row: 7/13;
+}
+
+.cardPlaceHolder.price_old_1 {
+    grid-column: 1/2;
+    grid-row: 10/13;
+    font-size: 400%;
+    text-decoration: line-through;
+    color: black;
+    /* line-height: 0; */
+    font-weight: bold;
+}
+
+.cardPlaceHolder.price_new_1 {
+    grid-column: 1/2;
+    grid-row: 10/13;
+    line-height: 70%;
+    font-size: 400%;
+    color: red;
+    font-weight: bold;
+}
+
+.cardPlaceHolder.price_old_2 {
+    grid-column: 1/13;
+    grid-row: 10/13;
+    font-size: 400%;
+    text-decoration: line-through;
+    color: black;
+    /* line-height: 0; */
+    font-weight: bold;
+}
+
+.cardPlaceHolder.price_new_2 {
+    grid-column: 1/13;
+    grid-row: 10/13;
+    line-height: 70%;
+    font-size: 400%;
+    color: red;
+    font-weight: bold;
+}
+
+.cardPlaceHolder.price__old {
+    font-size: 400%;
+    text-decoration: line-through;
+    color: black;
+    /* line-height: 0; */
+    font-weight: bold;
+}
+
+.cardPlaceHolder.price__new {
+    line-height: 70%;
+    font-size: 400%;
+    color: red;
+    font-weight: bold;
+}
+
+.price__text {
+    line-height: 50%;
+    font-size: 400%;
+    color: red;
+    font-weight: bold;
 }

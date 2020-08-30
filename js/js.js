@@ -1,25 +1,7 @@
-const cartPlaceHolder = document.querySelector(".cartPlaceHolder");
-
+const cardPlaceHolder = document.querySelector(".cardPlaceHolder");
 const inputs = document.querySelectorAll(".panel input");
-
 const renderBtn = document.querySelector(".renderBtn");
 const clearBtn = document.querySelector(".clearBtn");
-
-// const inputLogo = document.querySelectorAll(".logo");
-
-// const inputFoto_1 = document.querySelector(".foto_1");
-// const inputFoto_2 = document.querySelector(".foto_2");
-// const inputFoto_3 = document.querySelector(".foto_3");
-// const inputFoto_4 = document.querySelector(".foto_4");
-
-// const inputPrice_old_1 = document.querySelector(".price_old_1");
-// const inputPrice_new_1 = document.querySelector(".price_new_1");
-// const inputPrice_old_2 = document.querySelector(".price_old_2");
-// const inputPrice_new_2 = document.querySelector(".price_new_2");
-
-// const inputText_1 = document.querySelector(".text_1");
-// const inputText_2 = document.querySelector(".text_2");
-
 
 //inputs
 renderBtn.addEventListener("click", () => {
@@ -32,8 +14,7 @@ function getInputsValue() {
     document.querySelectorAll('input[type="text"]').forEach(input => {
         inputsDataArr.push(input);
     });
-    // console.log(inputsDataArr);
-    // return fields;
+
     sortInputsType(inputsDataArr);
 }
 
@@ -52,18 +33,23 @@ function sortInputsType(inputsDataArr) {
         }
     });
 
+
     renderCard(urlDataArr, textDataArr);
 }
 
 
 function renderCard(urlDataArr, textDataArr) {
+    // clear previous card;
+    cardPlaceHolder.innerHTML = "";
 
     //render img
     urlDataArr.forEach(elem => {
+        const divItem = document.createElement("div");
         let img = document.createElement("img");
-        img.className = elem.className;
-        img.scr = elem.value;
-        cartPlaceHolder.append(img);
+        divItem.className = elem.className;
+        img.src = elem.value;
+        divItem.append(img);
+        cardPlaceHolder.append(divItem);
     });
 
     //render text
@@ -71,47 +57,86 @@ function renderCard(urlDataArr, textDataArr) {
         let textDiv = document.createElement("div");
         textDiv.className = elem.className;
         textDiv.textContent = elem.value;
-        cartPlaceHolder.append(textDiv);
+        cardPlaceHolder.append(textDiv);
     });
+
+    moveImage(document.querySelectorAll(".cardPlaceHolder>div"));
 }
 
+//make image movable inside container
+function moveImage(element) {
+    let mousePosition;
+    let offset;
+    let mouseIsDown = false;
+    let scale = 1;
 
+    element.forEach(elem => {
 
-function generateHtml(
-    logo,
-    foto_1,
-    foto_2,
-    foto_3,
-    foto_4,
-    price_old_1,
-    price_new_1,
-    price_old_2,
-    price_new_2,
-    text_1,
-    text_2,) {
+        elem.addEventListener("mousedown", e => {
+            event.preventDefault();
+            mouseIsDown = true;
 
-    const card = document.createElement("div");
-    let inputImage = document.createElement("img");
-    let inputText = document.createElement("div");
-
-    card.classList.add("card");
-
-
-
-    cartPlaceHolder.append(card);
-
-
-    //clear inputs
-    clearBtn.addEventListener("click", () => {
-        inputs.forEach(input => (input.value = ""));
+            //get distance from left-up target conner
+            offset = [
+                e.target.offsetLeft - e.clientX,
+                e.target.offsetTop - e.clientY
+            ];
+            move(mouseIsDown, offset, e.target, scale);
+        }, true);
     });
 
-    //clear input on keyDown
-    function clearInputOnKeyDown(inputs) {
-        inputs.forEach(input => {
-            input.addEventListener("mousedown", e => (e.target.value = ""));
-        });
+    function move(mouseIsDown, offset, target, scale) {
+
+        document.addEventListener('mousemove', event => {
+            event.preventDefault();
+
+            if (mouseIsDown) {
+                // console.log(event.clientX, event.clientY);
+                mousePosition = {
+                    x: event.clientX,
+                    y: event.clientY
+                };
+                //style          =  mousePosition   + leftUp target
+                console.log(target.offsetLeft, target.offsetTop,
+                    mousePosition.x, offset[0], ";", mousePosition.y, offset[1]);
+
+                target.style.left = (mousePosition.x + offset[0]) + 'px';
+                target.style.top = (mousePosition.y + offset[1]) + 'px';
+            }
+        }, true);
+
+        document.addEventListener('wheel', function (event) {
+            if (mouseIsDown) {
+                if (event.deltaY < 0) {
+                    // Zoom in
+                    scale = scale + 0.01;
+                }
+                else {
+                    // Zoom out
+                    scale = scale - 0.01;
+                }
+                // Apply scale transform
+                target.style.transform = `scale(${scale})`;
+            }
+        }, true);
+
+        document.addEventListener('mouseup', () => {
+            mouseIsDown = false;
+        }, true);
+
     }
-    clearInputOnKeyDown(inputs);
+};
 
+
+//clear inputs
+clearBtn.addEventListener("click", () => {
+    inputs.forEach(input => (input.value = ""));
+});
+
+//clear input on keyDown
+function clearInputOnKeyDown(inputs) {
+    inputs.forEach(input => {
+        input.addEventListener("mousedown", e => (e.target.value = ""));
+    });
 }
+clearInputOnKeyDown(inputs);
