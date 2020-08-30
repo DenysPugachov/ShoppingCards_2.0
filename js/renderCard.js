@@ -33,7 +33,7 @@ function renderCard(urlDataArr, textDataArr) {
     //render img
     urlDataArr.forEach(elem => {
         const divItem = document.createElement("div");
-        let img = document.createElement("img");
+        const img = document.createElement("img");
         divItem.className = elem.className;
         img.src = elem.value;
         divItem.append(img);
@@ -41,10 +41,12 @@ function renderCard(urlDataArr, textDataArr) {
     });
     //render text
     textDataArr.forEach(elem => {
-        let textDiv = document.createElement("div");
-        textDiv.className = elem.className;
+        const divItem = document.createElement("div");
+        const textDiv = document.createElement("p");
+        divItem.className = elem.className;
         textDiv.textContent = elem.value;
-        cardPlaceHolder.append(textDiv);
+        divItem.append(textDiv);
+        cardPlaceHolder.append(divItem);
     });
 
     moveElement(document.querySelectorAll(".cardPlaceHolder>div"));
