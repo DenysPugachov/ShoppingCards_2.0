@@ -35,6 +35,8 @@ function sortInputsType(inputsDataArr) {
         }
     });
     renderCard(urlDataArr, textDataArr);
+    urlDataArr = [];
+    textDataArr = [];
 
 }
 
