@@ -19,6 +19,15 @@ clearBtn.addEventListener("click", () => {
     inputs.forEach(input => (input.value = ""));
 });
 
+//change overflow for fix but text Card inputs
+overflowToggleCheckbox.addEventListener('change', event => {
+    if (event.target.checked) {
+        cardPlaceHolder.style.overflow = "visible";
+    } else {
+        cardPlaceHolder.style.overflow = "hidden";
+    }
+});
+
 function renderCard(urlDataArr, textDataArr) {
     // clear previous card;
     cardPlaceHolder.innerHTML = "";
