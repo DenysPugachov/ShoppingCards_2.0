@@ -3,11 +3,20 @@ const renderBtn = document.querySelector(".renderBtn");
 const clearBtn = document.querySelector(".clearBtn");
 const cardPlaceHolder = document.querySelector(".cardPlaceHolder");
 
+const overflowToggleCheckbox = document.querySelector("#overflowToggle");
+
 //inputs
 renderBtn.addEventListener("click", () => {
     getInputsValue();
 });
 
+overflowToggleCheckbox.addEventListener('change', event => {
+    if (event.target.checked) {
+        cardPlaceHolder.style.overflow = "visible";
+    } else {
+        cardPlaceHolder.style.overflow = "hidden";
+    }
+});
 
 function getInputsValue() {
     const inputsDataArr = [];
