@@ -12,7 +12,6 @@ renderBtn.addEventListener("click", () => {
 });
 
 editBtn.addEventListener("click", () => {
-    console.log("click");
     updateCard(document.querySelectorAll(".cardPlaceHolder img"), document.querySelectorAll(".cardPlaceHolder p"));
 });
 //clear inputs
@@ -110,7 +109,6 @@ function clearInputOnKeyDown(inputs) {
 clearInputOnKeyDown(inputs);
 
 function updateCard(imgFieldArr, textFieldArr) {
-    console.log("updateCard");
     imgFieldArr.forEach((img, index) => {
         img.src = inputUrlArr[index].value;
     });
