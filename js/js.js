@@ -3,8 +3,9 @@ const renderBtn = document.querySelector(".renderBtn");
 const editBtn = document.querySelector(".editBtn");
 const clearBtn = document.querySelector(".clearBtn");
 const cardPlaceHolder = document.querySelector(".cardPlaceHolder");
-
 const overflowToggleCheckbox = document.querySelector("#overflowToggle");
+
+
 
 renderBtn.addEventListener("click", () => {
     getInputsValue();
@@ -86,7 +87,6 @@ function moveElement(element) {
     let scale = 1;
 
     element.forEach(elem => {
-
         elem.addEventListener("mousedown", e => {
             event.preventDefault();
             mouseIsDown = true;
@@ -104,7 +104,6 @@ function moveElement(element) {
 
         document.addEventListener('mousemove', event => {
             event.preventDefault();
-
             if (mouseIsDown) {
                 mousePosition = {
                     x: event.clientX,
