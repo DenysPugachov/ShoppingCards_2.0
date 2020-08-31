@@ -19,10 +19,10 @@ function getInputsValue() {
     sortInputsType(inputsDataArr);
 }
 
-const urlDataArr = [];
-const textDataArr = [];
 
 function sortInputsType(inputsDataArr) {
+    const urlDataArr = [];
+    const textDataArr = [];
 
     inputsDataArr.forEach(elem => {
         //get url inputs
