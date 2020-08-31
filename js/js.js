@@ -123,6 +123,7 @@ function moveElement(element) {
         }, true);
 
         document.addEventListener('wheel', function (event) {
+            event.preventDefault();
             if (mouseIsDown) {
                 if (event.deltaY < 0) {
                     // Zoom in
