@@ -1,53 +1,16 @@
 .panel {
     margin: 10px;
-    padding: 5px;
-    display: inline-block;
+    padding: 7px;
+    /* display: inline-block; */
     border-radius: 5px;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(245, 245, 245);
     box-shadow: 3px 3px 5px 3px #ccc;
-    vertical-align: top;
+    max-width: 1065px;
+    min-width: 245px;
 }
 
-.container__template {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.container__input {
-    display: inline-block;
-    width: 305px;
-}
-
-/* buttons */
-.template__btns {
-    margin: 3px;
-    width: 50px;
-    height: 50px;
-    background-size: 80%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 5px;
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-        inset -2px -2px 3px rgba(0, 0, 0, .6);
-    border: none;
-    background-color: rgb(243, 243, 243);
-}
-
-.template__btns:hover {
-    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
-        inset 2px 2px 3px rgba(0, 0, 0, .6);
-}
-
-.btn_t1 {
-    background-image: url("../img/t1_btn.png");
-}
-
-.btn_t2 {
-    background-image: url("../img/t2_btn.png");
-}
-
-.btn_t3 {
-    background-image: url("../img/t3_btn.png");
+.panel>* {
+    display: inline;
 }
 
 button {
@@ -75,33 +38,22 @@ button:hover {
         inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-
-
 .renderBtn {
     background-color: rgba(220, 0, 0, 1);
-    width: 85%;
-
+    /* float: right; */
 }
 
 .editBtn {
     background-color: rgb(0, 220, 183);
-    width: 85%;
+    /* float: right; */
+    /* margin: 0 10px; */
 }
 
 .clearBtn {
-    margin: 3px;
-    width: 45px;
-    height: 45px;
-    background-size: 153%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url("../img/clear-btn.jpg");
-    box-shadow: none;
-    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
-        inset -2px -2px 3px rgba(0, 0, 0, .6);
+    background-color: rgba(0, 33, 220, 0.911);
+    width: 100px;
+    margin: 0 5px;
 }
-
-/* inputs */
 
 input {
     margin: 5px 0;
@@ -133,12 +85,19 @@ input {
     font-weight: bold;
 }
 
+.options {
+    float: right;
+    text-align: right;
+    height: 38 px;
+}
 
-/* active template */
-.active {
-    background-color: rgba(220, 0, 0, .1);
-    box-shadow: inset -4px -4px 6px rgba(255, 255, 255, .6),
-        inset 4px 4px 6px rgba(220, 0, 0, .6);
-    border: rgba(220, 0, 0, 1) solid 3px;
-    border-radius: -5px;
+.version {
+    position: absolute;
+    top: -10px;
+    left: 11px;
+}
+
+.wrapper_btn {
+    display: flex;
+    justify-content: space-between;
 }

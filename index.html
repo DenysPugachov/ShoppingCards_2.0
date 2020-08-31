@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,65 +8,56 @@
     <link rel="stylesheet" href="CSS/main.css" />
     <link rel="stylesheet" href="CSS/switch.css" />
     <link rel="stylesheet" href="CSS/card.css" />
-    <title>ShopCartCreator</title>
+    <title>ShopCartCreator2</title>
 </head>
 
 <body>
 
     <div class="panel">
-        <div class="container__template">
-            <p>v2.12</p>
-            <button class="clearBtn"></button><br>
 
-            <button class="template__btns btn_t1"></button><br />
-            <button class="template__btns btn_t2"></button><br />
-            <button class="template__btns btn_t3"></button><br />
-        </div>
-
-
-        <div class="container__input">
-            <div class="wrapper_logo">
-                <input type="text" class="logo url" name="logo" placeholder="Logo" />
-                <input class="switch" type="checkbox" title="background" />
-            </div>
-
-            <br />
-
-            <div class="wrapper_foto">
-                <input type="text" class="foto_1 url" name="foto_1" placeholder="Foto_1" />
-                <input type="text" class="foto_2 url" name="foto_2" placeholder="Foto_2" />
-                <input type="text" class="foto_3 url" name="foto_3" placeholder="Foto_3" />
-                <input type="text" class="foto_4 url" name="foto_4" placeholder="Foto_4" />
-            </div>
-
-            <br />
-
-            <div class="wrapper_price">
-                <input type="text" class="price_old_1 text" name="old_price" placeholder="Old_price" />
-                <input class="switch" type="checkbox" title="background" />
-                <input type="text" class="price_new_1 text" name="new_price" placeholder="New_price" />
-                <input class="switch" type="checkbox" title="background" />
-                <input type="text" class="price_old_2 text" name="old_price" placeholder="Old_price" />
-                <input class="switch" type="checkbox" title="background" />
-                <input type="text" class="price_new_2 text" name="new_price" placeholder="New_price" />
-                <input class="switch" type="checkbox" title="background" />
-            </div>
-
-            <br />
-
-            <div class="wrapper_text">
-                <input type="text" class="text_1 text" name="text_1 text" placeholder="Text_1" />
-                <input class="switch" type="checkbox" title="background" />
-                <input type="text" class="text_2 text" name="text_2 text" placeholder="Text_2" />
-                <input class="switch" type="checkbox" title="background" />
-            </div>
-
-            <button class="renderBtn">Нарисовать</button>
+        <p class="version">v2.13</p>
+        <div class="options">
+            <button class="clearBtn">Clear</button>
             <input class="switch" id="overflowToggle" type="checkbox" title="overflow" />
+        </div>
+        <div class="wrapper_logo">
+            <input type="text" class="logo url" name="logo" placeholder="Logo" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+        </div>
+        <br>
+        <div class="wrapper_foto">
+            <input type="text" class="foto_1 url" name="foto_1" placeholder="Foto_1" />
+            <input type="text" class="foto_2 url" name="foto_2" placeholder="Foto_2" />
+            <input type="text" class="foto_3 url" name="foto_3" placeholder="Foto_3" />
+            <input type="text" class="foto_4 url" name="foto_4" placeholder="Foto_4" />
+        </div>
+        <br>
+        <div class="wrapper_price">
+            <input type="text" class="price_old_1 text" name="old_price" placeholder="Old_price" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+            <input type="text" class="price_new_1 text" name="new_price" placeholder="New_price" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+            <input type="text" class="price_old_2 text" name="old_price" placeholder="Old_price" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+            <input type="text" class="price_new_2 text" name="new_price" placeholder="New_price" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+        </div>
+        <br>
+        <div class="wrapper_text">
+            <input type="text" class="text_1 text" name="text_1 text" placeholder="Text_1" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+            <input type="text" class="text_2 text" name="text_2 text" placeholder="Text_2" />
+            <!-- <input class="switch" type="checkbox" title="background" /> -->
+        </div>
+        <br>
+        <div class="wrapper_btn">
             <button class="editBtn">Изменить</button>
-
+            <button class="renderBtn">Нарисовать</button>
         </div>
     </div>
+
+    <br>
+
     <div class="container__card">
         <div class="cardPlaceHolder"> </div>
     </div>
