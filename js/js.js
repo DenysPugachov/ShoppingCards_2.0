@@ -4,46 +4,25 @@ const editBtn = document.querySelector(".editBtn");
 const clearBtn = document.querySelector(".clearBtn");
 const cardPlaceHolder = document.querySelector(".cardPlaceHolder");
 const overflowToggleCheckbox = document.querySelector("#overflowToggle");
-
-
+const inputUrlArr = document.querySelectorAll("input.url");
+const inputTextArr = document.querySelectorAll("input.text");
 
 renderBtn.addEventListener("click", () => {
-    getInputsValue();
+    renderCard(inputUrlArr, inputTextArr);
 });
 
-
-function getInputsValue() {
-    const inputsDataArr = [];
-    document.querySelectorAll('input[type="text"]').forEach(input => {
-        inputsDataArr.push(input);
-    });
-    sortInputsType(inputsDataArr);
-}
-
-
-function sortInputsType(inputsDataArr) {
-    const urlDataArr = [];
-    const textDataArr = [];
-
-    inputsDataArr.forEach(elem => {
-        //get url inputs
-        if (elem.classList.contains("url")) { urlDataArr.push(elem); }
-        //get text inputs
-        else if (elem.classList.contains("text")) { textDataArr.push(elem); }
-        else {
-            console.error(elem, "has wrong class");
-        }
-    });
-    renderCard(urlDataArr, textDataArr);
-    urlDataArr = [];
-    textDataArr = [];
-
-}
+editBtn.addEventListener("click", () => {
+    console.log("click");
+    updateCard(document.querySelectorAll(".cardPlaceHolder img"), document.querySelectorAll(".cardPlaceHolder p"));
+});
+//clear inputs
+clearBtn.addEventListener("click", () => {
+    inputs.forEach(input => (input.value = ""));
+});
 
 function renderCard(urlDataArr, textDataArr) {
     // clear previous card;
     cardPlaceHolder.innerHTML = "";
-
     //render img
     urlDataArr.forEach(elem => {
         const divItem = document.createElement("div");
@@ -62,11 +41,9 @@ function renderCard(urlDataArr, textDataArr) {
         divItem.append(textDiv);
         cardPlaceHolder.append(divItem);
     });
-
+    //select movable elements
     moveElement(document.querySelectorAll(".cardPlaceHolder>div"));
 }
-
-
 
 //make image movable inside container
 function moveElement(element) {
@@ -104,7 +81,7 @@ function moveElement(element) {
         }, true);
 
         document.addEventListener('wheel', function (event) {
-            event.preventDefault();
+            // event.preventDefault();
             if (mouseIsDown) {
                 if (event.deltaY < 0) {
                     // Zoom in
@@ -122,15 +99,8 @@ function moveElement(element) {
         document.addEventListener('mouseup', () => {
             mouseIsDown = false;
         }, true);
-
     }
 };
-
-
-//clear inputs
-clearBtn.addEventListener("click", () => {
-    inputs.forEach(input => (input.value = ""));
-});
 
 function clearInputOnKeyDown(inputs) {
     inputs.forEach(input => {
@@ -138,3 +108,14 @@ function clearInputOnKeyDown(inputs) {
     });
 }
 clearInputOnKeyDown(inputs);
+
+function updateCard(imgFieldArr, textFieldArr) {
+    console.log("updateCard");
+    imgFieldArr.forEach((img, index) => {
+        img.src = inputUrlArr[index].value;
+    });
+    textFieldArr.forEach((p, index) => {
+        p.textContent = inputTextArr[index].value;
+    });
+
+}
