@@ -11,6 +11,7 @@
     width: 1080px;
     outline: solid #ccc;
     position: relative;
+    overflow: hidden;
 }
 
 .cardPlaceHolder>div {
@@ -19,10 +20,6 @@
     justify-items: center;
     position: relative;
     height: 100%;
-}
-
-.cardPlaceHolder {
-    overflow: hidden;
 }
 
 img {
@@ -132,8 +129,9 @@ img {
     /* font-weight: bold; */
 }
 
-.cardPlaceHolder .text{
+.cardPlaceHolder .text {
     /* border: solid black; */
     font-weight: bold;
     z-index: 60;
+    overflow: visible;
 }

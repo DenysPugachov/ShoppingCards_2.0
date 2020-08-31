@@ -10,13 +10,6 @@ renderBtn.addEventListener("click", () => {
     getInputsValue();
 });
 
-overflowToggleCheckbox.addEventListener('change', event => {
-    if (event.target.checked) {
-        cardPlaceHolder.style.overflow = "visible";
-    } else {
-        cardPlaceHolder.style.overflow = "hidden";
-    }
-});
 
 function getInputsValue() {
     const inputsDataArr = [];
