@@ -1,11 +1,11 @@
 const inputs = document.querySelectorAll(".panel input");
 const renderBtn = document.querySelector(".renderBtn");
+const editBtn = document.querySelector(".editBtn");
 const clearBtn = document.querySelector(".clearBtn");
 const cardPlaceHolder = document.querySelector(".cardPlaceHolder");
 
 const overflowToggleCheckbox = document.querySelector("#overflowToggle");
 
-//inputs
 renderBtn.addEventListener("click", () => {
     getInputsValue();
 });
@@ -26,9 +26,10 @@ function getInputsValue() {
     sortInputsType(inputsDataArr);
 }
 
+const urlDataArr = [];
+const textDataArr = [];
+
 function sortInputsType(inputsDataArr) {
-    const urlDataArr = [];
-    const textDataArr = [];
 
     inputsDataArr.forEach(elem => {
         //get url inputs
@@ -40,6 +41,7 @@ function sortInputsType(inputsDataArr) {
         }
     });
     renderCard(urlDataArr, textDataArr);
+
 }
 
 function renderCard(urlDataArr, textDataArr) {
@@ -68,6 +70,20 @@ function renderCard(urlDataArr, textDataArr) {
     moveElement(document.querySelectorAll(".cardPlaceHolder>div"));
 }
 
+
+function setCardContent(urlDataArr, textDataArr) {
+    const cardImgArr = document.querySelectorAll(".cardPlaceHolder img");
+    const cardTextArr = document.querySelectorAll(".cardPlaceHolder p");
+
+    urlDataArr.forEach((elem, index) => {
+        cardImgArr[index].src = elem.value;
+    });
+
+    textDataArr.forEach((elem, index) => {
+        cardTextArr[index].textContent = elem.value;
+    });
+
+}
 
 //make image movable inside container
 function moveElement(element) {
@@ -140,3 +156,9 @@ function clearInputOnKeyDown(inputs) {
     });
 }
 clearInputOnKeyDown(inputs);
+
+//change card content without rebooting page
+editBtn.addEventListener("click", () => {
+    console.log("edit");
+    setCardContent(urlDataArr, textDataArr);
+});
