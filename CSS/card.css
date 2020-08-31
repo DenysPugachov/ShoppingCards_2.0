@@ -112,7 +112,7 @@ img {
 }
 
 .cardPlaceHolder .text_1 {
-    grid-column: 1/7;
+    grid-column: 1/13;
     grid-row: 12/13;
     line-height: 70%;
     font-size: 400%;
